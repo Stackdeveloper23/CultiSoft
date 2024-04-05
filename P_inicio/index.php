@@ -16,7 +16,7 @@ $sql->execute();
 $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
 
 //session_destroy();
-//print_r($_SESSION);
+print_r($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +69,7 @@ $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
           <div style="padding-right: 15px;">
             <button type="button" class="btn btn-outline-warning position-relative">
               <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);"
-                href="checkout.php">
+                href="carrito_compras.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3"
                   viewBox="0 0 16 16">
                   <path
@@ -77,7 +77,7 @@ $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
                 </svg>
                 carrito
                 <span id=" num_cart" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
-                <?php echo $num_cart; ?>
+                <?php echo $num_cart; ?> </span>
                   <span  class="visually-hidden">unread messages</span>
               </a>
             </button>
@@ -156,7 +156,8 @@ $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
             $imagen = "img/nophoto.png";
           }
           
-          ?>
+          ?> 
+          <h1><?php echo $id;?></h1>
             <img src="<?php echo $imagen; ?>" class="rounded mx-auto d-block"
               height="200px">
             <div class="card-body text-center">
@@ -165,9 +166,11 @@ $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
               <a style="margin-bottom: 10px;" href="detalles.php?id=<?php echo $row['id']; ?>&token=<?php echo
               hash_hmac('sha1',$row['id'], KEY_TOKEN);?>" class="btn btn-outline-warning">Detalles</a>
               <button class="btn btn-primary" type="button" 
-              onclick= "addProducto(<?php echo $row['id']; ?> , '<?php echo
-              hash_hmac('sha1',$row['id'], KEY_TOKEN);?>')">Agregar al carrito</button>
+              onclick= "addProducto(<?php echo $row['id']; ?> , 
+              '<?php echo hash_hmac('sha1',$row['id'], KEY_TOKEN);?>')">
+              Agregar al carrito</button>
               <h6>Paquete de semillas de la mas alta calidad.</h6>
+
             </div>
           </div>
         </div>
@@ -222,7 +225,7 @@ $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
       let formData = new FormData()
       formData.append('id',id) 
       formData.append('token',token)
-      
+
       fetch(url, {
         method: 'POST',
         body: formData,
@@ -233,9 +236,14 @@ $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
         console.log(data)
         if(data.ok){
           let elemento = document.getElementById('num_cart')
-          elemento.innerHTML = data.numero
-        }
+          elemento.innerHTML = data.numero;
+          console.log(json_encode($response));
+        }else {
+    // Mostrar un mensaje de error al usuario
+    console.error("Error al agregar el producto:", data.error);
+  }
       })
+     
     }
     </script>
 

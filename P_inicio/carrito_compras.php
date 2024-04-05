@@ -209,15 +209,9 @@ print_r($_SESSION);
           <hr>
           <div class="row">
             <div class="col" style="padding: left 10px;">ARTÍCULOS: 3</div>
-            <div class="col text-right">&euro; 132.000</div>
+            
           </div>
-         <!-- <div class="row">
-            <div class="col" style="padding: left 10px;">Subtotal</div>
-            <div class="col text-right">
-            <div id ="subtotal_<?php //echo $id; ?>" name="subtotal[]">
-              <?php //echo MONEDA . number_format($subtotal,2, ',','.');?></div>
-            </div>
-          </div>-->
+        
 
           <div class="row" style="border-top: 1px solid rgb(0, 0, 0); padding: 2vh 0;">
             <div class="row">Precio Total</div>
@@ -273,7 +267,7 @@ print_r($_SESSION);
             }
 
            total = new Intl.NumberFormat
-            ('es-CO',
+            ('en-US',
                {
             minimumFractionDigits: 3,
               })

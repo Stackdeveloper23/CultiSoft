@@ -10,7 +10,7 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../estilos/stylesesion.css">
     <title>Iniciar sesion</title>
-    <link rel="icon" href="../img/images/Ccaptura_de_pantalla_2024-03-10_120118-removebg-preview.png">
+    <link rel="icon" href="../img/images/logo.png">
     
 </head>
 
@@ -29,8 +29,8 @@ session_start();
                 </div>
                 <span>o utilice su correo electrónico para registrarse</span>
                 <?php
-  include_once('registro.php');
-  ?>
+                include_once('registro.php');
+                ?>
                
                 <input type="text" placeholder="N° Identificacion" required name="id">
                 <input type="text" placeholder="Nombre" required name="nombres">

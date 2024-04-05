@@ -50,7 +50,7 @@ function agregar($id, $cantidad) {
             return $res;
         }
 
-        // Cálculo correcto del total
+        // Cálculo del total
         $precio = $row['precio'];
         $res = $precio * $cantidad;
 
@@ -64,42 +64,5 @@ function agregar($id, $cantidad) {
         return $res;
     }
 
-    // Manejo de errores
-   // catch (Exception $e) {
-   //     echo "Error al agregar el producto al carrito: " . $e->getMessage();
-      //  return $res;
-   // }
 }
-
-/*function agregar($cantidad, $id) {
-    $res = 0;
-
-    if ($id > 0 && $cantidad > 0 && is_numeric($cantidad)) {
-        $database = new Connection();
-        $db = $database->open();
-
-        // Validar si el producto existe
-        $sql = $db->prepare("SELECT COUNT(*) FROM productos WHERE id=? AND estado = 'disponible'");
-        $sql->execute([$id]);
-        $existe = $sql->fetchColumn();
-
-        if ($existe > 0) {
-            if (isset($_SESSION['carrito']['productos'][$id])) {
-                $_SESSION['carrito']['productos'][$id] = $cantidad;
-            } else {
-                $_SESSION['carrito']['productos'][$id] = $cantidad;
-            }
-
-            // Obtener el precio del producto
-            $sql = $db->prepare("SELECT precio FROM productos WHERE id=?");
-            $sql->execute([$id]);
-            $row = $sql->fetch(PDO::FETCH_ASSOC);
-            $precio = $row['precio'];
-
-            $res = $precio * $cantidad;
-        }
-    }
-
-    return $res;
-}*/
 ?>
