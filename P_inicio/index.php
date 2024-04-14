@@ -69,7 +69,7 @@ print_r($_SESSION);
           <div style="padding-right: 15px;">
             <button type="button" class="btn btn-outline-warning position-relative">
               <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);"
-                href="carrito_compras.php">
+                href="carrito_compras/carrito_compras.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3"
                   viewBox="0 0 16 16">
                   <path
@@ -167,9 +167,9 @@ print_r($_SESSION);
               hash_hmac('sha1',$row['id'], KEY_TOKEN);?>" class="btn btn-outline-warning">Detalles</a>
               <button class="btn btn-primary" type="button" 
               onclick= "addProducto(<?php echo $row['id']; ?> , 
-              '<?php echo hash_hmac('sha1',$row['id'], KEY_TOKEN);?>')">
+              '<?php echo hash_hmac('sha1',$row['id'], KEY_TOKEN);?>' , '<?php echo $_SESSION['id']?>','<?php echo $row['nombre'];?>')">
               Agregar al carrito</button>
-              <h6>Paquete de semillas de la mas alta calidad.</h6>
+              
 
             </div>
           </div>
@@ -220,11 +220,12 @@ print_r($_SESSION);
     crossorigin="anonymous"></script>
 
   <script>
-    function addProducto(id, token){
-      let url ='carrito.php'
+    function addProducto(id, token, id_cliente){
+      let url ='carrito_compras/btn_carrito.php'
       let formData = new FormData()
-      formData.append('id',id) 
+      formData.append('id',id)
       formData.append('token',token)
+      formData.append('id_cliente', <?php echo $_SESSION['id'] ?>);
 
       fetch(url, {
         method: 'POST',

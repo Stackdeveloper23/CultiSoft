@@ -6,8 +6,8 @@ if (isset($_SESSION['id'])) {
 
 ?>
 <?php 
-require 'token.php';
-require 'dbconect.php';
+require '../token.php';
+require '../dbconect.php';
 $database = new Connection();
 $db = $database->open();
 
@@ -32,11 +32,11 @@ print_r($_SESSION);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <title>Carrito de compra</title>
-  <link rel="stylesheet" href="estilos/carrito.css">
-  <link rel="icon" href="img/images/logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+    <title>Carrito de compra</title>
+  <link rel="stylesheet" href="../estilos/carrito.css">
+  <link rel="icon" href="../img/images/logo.png">
 </head>
 
 <body>
@@ -44,8 +44,8 @@ print_r($_SESSION);
   <div class="row">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <h2><a class="navbar-brand" style="color: rgb(41, 206, 41);" href="index.php">
-            <img src="img/images/logo.png" width="80px"
+        <h2><a class="navbar-brand" style="color: rgb(41, 206, 41);" href="../index.php">
+            <img src="../img/images/logo.png" width="80px"
               height="50px">CultiSoft</a></h2>
 
         <form class="d-flex" role="buscar">
@@ -185,8 +185,10 @@ print_r($_SESSION);
             
             </td>
             <td>
+              <!-- Button trigger modal -->
+
           <a href="#" id="eliminar" class="btn btn-warning btn-sm" data-bs-id="<?php
-        echo $_id; ?>" data-bs-toogle="modal" data-bs-target="eliminamodal">Eliminar</a>
+        echo $id; ?>" data-bs-toggle="modal" data-bs-target="#eliminamodal">Eliminar</a>
         </td>
         </tr>
        
@@ -238,10 +240,35 @@ print_r($_SESSION);
         
       </div>
        
-      
+      <!-- Modal -->
+<div class="modal fade" id="eliminamodal" tabindex="-1" aria-labelledby="eliminamodalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="eliminamodalLabel">Alerta</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ¿Estas seguro de que quieres eliminar el producto del carrito?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="btn-elimina" class="btn btn-danger" onclick="eliminar()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
   
     <script>
-    
+    //eliminar producto de carrito
+let eliminaModal = document.getElementById('eliminamodal')
+eliminaModal.addEventListener('show.bs.modal' , function(event){
+  let button = event.relatedTarget
+  let id = button.getAttribute('data-bs-id')
+  let buttonElimina =  eliminaModal.querySelector('.modal-footer #btn-elimina')
+  buttonElimina.value = id
+} )
+
     function actualizaCantidad(id, cantidad) {
     let url = 'actualizar_carrito.php';
     let formData = new FormData();
@@ -281,7 +308,35 @@ print_r($_SESSION);
       
 }
 actualizaCantidad(<?php echo $id; ?>, <?php echo $cantidad; ?>);
+
+//funcion eliminar producto de carrito
+function eliminar() {
+ 
+  let botonElimina = document.getElementById('btn-elimina')
+  let id = botonElimina.value
+
+    let url = 'actualizar_carrito.php';
+    let formData = new FormData();
+    formData.append('action', 'eliminar');
+    formData.append('id', id);
+    formData.append('id_cliente' , <?php echo $_SESSION['id'] ?>)
+    
+    fetch(url, {
+        method: 'POST',
+        body: formData,
+        mode: 'cors',
+    }).then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            
+          location.reload()
+
+          }
+        })
+      
+}
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 

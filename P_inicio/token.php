@@ -1,6 +1,6 @@
 <?php
 
-define("KEY_TOKEN","APR.wqc-354*");
+define("KEY_TOKEN", base64_decode("APR.wqc-354*"));
 define("MONEDA","$");
 
 session_start();
