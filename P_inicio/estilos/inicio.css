@@ -1,0 +1,57 @@
+/*
+Paleta de colores 
+
+Rosa pastel: #F8BBC8
+Verde salvia:#9DC25F
+ Amarillo mostaza: #F0DB4F
+ Naranja melocotón: #F5C997
+ blanco marfil: #FFF8DC
+
+*/
+
+#cabecera{
+    background-color: #FFF8DC;
+}
+
+#seccion_product{
+    background-image: url('../img/images/fondo.jpg');
+    background-repeat: repeat; 
+    background-size: cover; 
+    background-position: center; 
+    padding: 2rem;
+  
+}
+
+#card{
+    border: solid 3px rgb(255, 133, 245);
+    
+}
+
+#contenedor_card{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 30px;
+
+}
+
+#carouselExampleAutoplaying{
+    max-height: 450px;
+}
+.carousel-item img {
+    object-fit: cover;
+    height: 100%; 
+    width: 100%; 
+  }
+#titulo_carrusel{
+    display: flex;
+    justify-content: center;
+   align-content: center;
+}
+
+#titulo_productos{
+    color: black ;
+    background-color: #f8bbc8c7 !important;
+    border-radius: 20px;
+}
