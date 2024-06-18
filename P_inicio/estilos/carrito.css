@@ -1,0 +1,123 @@
+body{
+    background: linear-gradient(to right, #046319, #0b99162f);
+}
+.title{
+    margin-bottom: 5vh;
+}
+.card{
+    margin: auto;
+    max-width: 950px;
+    width: 90%;
+    box-shadow: 10px 10px 20px 10px rgba(93, 99, 93, 0.973);
+    border-radius: 1rem;
+    border: transparent;
+}
+@media(max-width:767px){
+    .card{
+        margin: 3vh auto;
+    }
+}
+.cart{
+    background-color: #ffffff59;
+    padding: 4vh 5vh;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+}
+@media(max-width:767px){
+    .cart{
+        padding: 4vh;
+        border-bottom-left-radius: unset;
+        border-top-right-radius: 1rem;
+    }
+}
+.summary{
+    background-color: #5a585841;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 4vh;
+    color: rgb(0, 0, 0);
+}
+@media(max-width:767px){
+    .summary{
+    border-top-right-radius: unset;
+    border-bottom-left-radius: 1rem;
+    }
+}
+.summary .col-2{
+    padding: 0;
+}
+.summary .col-10
+{
+    padding: 0;
+}.row{
+    margin: 0;
+}
+.title b{
+    font-size: 1.5rem;
+}
+.main{
+    margin: 0;
+    padding: 2vh 0;
+    width: 100%;
+}
+.col-2, .col{
+    padding: 0 1vh;
+}
+a{
+    padding: 0 1vh;
+}
+.close{
+    margin-left: auto;
+    font-size: 0.7rem;
+}
+img{
+    width: 3.5rem;
+}
+.volver{
+    margin-top: 2rem;
+}
+h5{
+    margin-top: 8vh;
+}
+hr{
+    margin-top: 1.25rem;
+}
+.codigo{
+    padding: 2vh 0;
+}
+
+input{
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1vh;
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+  
+}
+input:focus::-webkit-input-placeholder
+{
+      color:transparent;
+}
+.submit{
+    background-color: #76797515 ;
+    color: rgb(42, 49, 43);
+    width: 100%;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 8px 45px;
+    border: 1px solid;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+.submit:hover{
+    background-color: rgba(71, 71, 71, 0.288);
+}
+
+.menos{
+    color: rgb(0, 0, 0); 
+}
+a:hover{
+    color: rgba(18, 139, 34, 0.938);
+    text-decoration: none;
+}
+
