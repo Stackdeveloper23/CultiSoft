@@ -147,19 +147,19 @@ print_r($_SESSION);
 
 <!-- seccion carrusel-->
 
-  <section class="page-section" style="background-color: #1abc9c; ">
+  <section class="page-section" style="background-color: #f8bbc8c7 ; ">
     <div class="row" id="carrusel">
 
       <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="./img/images/carrusel3.jpg" class="w-100" alt="...">
+            <img src="./img/images/carrusel3.jpg" class="w-100, h-100" style="object-fit: contain;">
           </div>
           <div class="carousel-item">
-            <img src="./img/images/carrusel1.jpg" class="w-100" alt="...">
+            <img src="./img/images/carrusel1.jpg" class="w-100, h-100" style="object-fit: contain;">
           </div>
           <div class="carousel-item">
-            <img src="./img/images/carrusel2.jfif" class="w-100" alt="...">
+            <img src="./img/images/carrusel2.jfif" class="w-100, h-100" style="object-fit: contain;">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
@@ -177,6 +177,9 @@ print_r($_SESSION);
     </div>
   </section>
 
+  
+   
+  
   <!--/* seccion productos*/-->
  
 
@@ -208,7 +211,7 @@ print_r($_SESSION);
               hash_hmac('sha1',$row['id'], KEY_TOKEN);?>" class="btn btn-outline-warning">Detalles</a>
               <button class="btn btn-primary" type="button" 
               onclick= "addProducto(<?php echo $row['id']; ?> , 
-              '<?php echo hash_hmac('sha1',$row['id'], KEY_TOKEN);?>' , '<?php// echo $_SESSION['id']?>','<?php echo $row['nombre'];?>')">
+              '<?php echo hash_hmac('sha1',$row['id'], KEY_TOKEN);?>' , '<?php // echo $_SESSION['id']?>','<?php echo $row['nombre'];?>')">
               Agregar al carrito</button>
               
 
@@ -224,44 +227,11 @@ print_r($_SESSION);
     </div>
   </section>
  
-        <!-- seccion carrusel-->
-<!--
-  <section class="page-section" style="background-color: #1abc9c; ">
-    <div class="row" id="carrusel">
-
-      <div id="titulo_carrusel"><h2 class="text-center mb-5"  style="color: green;">PROMOCIONES</h2></div>
-      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="./img/images/carrusel3.jpg" class="w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="./img/images/carrusel1.jpg" class="w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="./img/images/carrusel2.jfif" class="w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-          data-bs-slide="prev" style=" border-radius: 200px; width: 50px;">
-          <span class="carousel-control-prev-icon" style="background-color: rgb(170, 170, 170); border-radius: 100%;" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-          data-bs-slide="next" style=" border-radius: 200px; width: 50px;">
-          <span class="carousel-control-next-icon" style="background-color:rgb(170, 170, 170); border-radius: 100%;" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-
-    </div>
-  </section>
-  -->
-
+  
         <!--seccion productos ofertas-->
  <section class="container pt-5">
   <div class="row justify-content-center">
-  <div class="col-md-6 col-lg-6 mb-3" style="height: 200px;">
+  <div class="col-md-6 col-lg-6 mb-3" ">
   <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
@@ -277,7 +247,7 @@ print_r($_SESSION);
   </div>
 </div>
   </div>
-  <div class="col-md-6 col-lg-6 mb-3"  style="height: 200px;">
+  <div class="col-md-6 col-lg-6 mb-3"  ">
   <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
