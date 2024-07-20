@@ -8,8 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Products extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'category_id']; // Campos fillable según tu estructura
-
+    protected $fillable = [
+        'name',
+        'status',
+        'description',
+        'price',
+        'image_path',
+        'quantity',
+        'category_id',
+    ];
+    
     // Relación pertenencia a una categoría
     public function category()
     {

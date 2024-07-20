@@ -19,10 +19,9 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->string('image_path');
             $table->integer('quantity');
+            $table->unsignedBigInteger('category_id'); // Ensure the column is added
             $table->timestamps();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-
-        });
+  });
     }
 
     /**
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('productos');
+        Schema::dropIfExists('products');
     }
 };
